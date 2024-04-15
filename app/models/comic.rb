@@ -1,3 +1,3 @@
 class Comic < ApplicationRecord
-  belogns_to :publisher
+  belongs_to :publisher
 end
