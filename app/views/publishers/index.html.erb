@@ -1,0 +1,18 @@
+  <table>
+    <thead>
+      <tr>
+        <th>出版社名</th>
+        <th>所在地</th>
+      </tr>
+    </thead >
+    <tbody>
+      <% @publishers.each do |publisher| %>
+        <tr>
+          <td><%= publisher.name %></td>
+          <td><%= publisher.address %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "新規登録", new_publisher_path %>
