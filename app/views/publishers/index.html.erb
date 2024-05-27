@@ -3,6 +3,8 @@
       <tr>
         <th>出版社名</th>
         <th>所在地</th>
+        <th>詳細</th>
+        <th>編集</th>
       </tr>
     </thead >
     <tbody>
@@ -10,6 +12,8 @@
         <tr>
           <td><%= publisher.name %></td>
           <td><%= publisher.address %></td>
+          <td><%= link_to '詳細', publisher_path(publisher) %></td>
+          <td><%= link_to '編集', edit_publisher_path(publisher) %></td>
         </tr>
       <% end %>
     </tbody>
