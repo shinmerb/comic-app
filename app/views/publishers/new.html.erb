@@ -1,7 +1,9 @@
-<%= form_with model: @publisher do |form| %>
-  <%= form.label :name, "出版社名" %>
-  <%= form.text_field :name %>
-  <%= form.label :address, "所在地" %>
-  <%= form.text_field :address %>
-  <%= form.submit %>
+<h1>新規登録画面</h1>
+<%= form_with model: @publisher, url: publishers_path do |form| %>
+  <%= render 'form', form: form  %>
+
+  <div>
+    <%= form.submit "登録" %>
+  </div>
 <% end %>
+<%= link_to "戻る", publishers_path %>

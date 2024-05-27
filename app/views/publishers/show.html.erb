@@ -1,0 +1,10 @@
+<h1>詳細画面</h1>
+
+<ul>
+  <li><%= @publisher.name %></li>
+  <li><%= @publisher.address %></li>
+</ul>
+
+<%= link_to "編集", edit_publisher_path(@publisher) %>
+<%= link_to "削除", publisher_path(@publisher), method: :delete %>
+<%= link_to "戻る", publishers_path %>

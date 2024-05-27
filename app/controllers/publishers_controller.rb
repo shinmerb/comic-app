@@ -17,6 +17,33 @@ class PublishersController < ApplicationController
     end
   end
 
+  def edit
+    @publisher = Publisher.find(params[:id])
+  end
+
+  def update
+    @publisher = Publisher.find(params[:id])
+
+    if @publisher.update(publisher_params)
+      redirect_to publishers_path, notice: '出版社を更新しました'
+    else
+      render :edit
+    end
+  end
+
+  def show
+    @publisher = Publisher.find(params[:id])
+  end
+
+  def destroy
+    @publisher = Publisher.find(params[:id])
+    if @publisher.destroy
+      redierct_to publishers_path, notice: '出版社を削除しました'
+    else
+      render :index
+    end
+  end
+
   private
 
   def publisher_params
