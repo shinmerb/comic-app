@@ -6,5 +6,5 @@
 </ul>
 
 <%= link_to "編集", edit_publisher_path(@publisher) %>
-<%= link_to "削除", publisher_path(@publisher), method: :delete %>
+<%= link_to "削除", publisher_path(@publisher), data: { turbo_method: :delete } %>
 <%= link_to "戻る", publishers_path %>

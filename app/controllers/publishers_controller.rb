@@ -37,11 +37,8 @@ class PublishersController < ApplicationController
 
   def destroy
     @publisher = Publisher.find(params[:id])
-    if @publisher.destroy
-      redierct_to publishers_path, notice: '出版社を削除しました'
-    else
-      render :index
-    end
+    @publisher.destroy!
+    redirect_to publishers_path, notice: '出版社を削除しました'
   end
 
   private
