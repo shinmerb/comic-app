@@ -1,3 +1,14 @@
+<% if @publisher.errors.present? %>
+  <div>
+    <ul>
+      <% @publisher.errors.each do |error| %>
+        <li>
+          <%= error.full_message %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <h1>新規登録画面</h1>
 <%= form_with model: @publisher, url: publishers_path do |form| %>
   <%= render 'form', form: form  %>
