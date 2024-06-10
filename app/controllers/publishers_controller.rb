@@ -9,11 +9,10 @@ class PublishersController < ApplicationController
 
   def create
     @publisher = Publisher.new(publisher_params)
-
     if @publisher.save
       redirect_to publishers_path, notice: '出版社を保存しました'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
