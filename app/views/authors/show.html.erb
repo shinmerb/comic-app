@@ -1,0 +1,10 @@
+<h1>詳細画面</h1>
+
+<ul>
+  <li><%= @author.name %></li>
+  <li><%= @author.birthday %></li>
+</ul>
+
+<%= link_to "編集", edit_author_path(@author) %>
+<%= link_to "削除", author_path(@author), data: { turbo_method: :delete } %>
+<%= link_to "戻る", authors_path %>

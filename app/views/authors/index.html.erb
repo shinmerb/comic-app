@@ -1,0 +1,22 @@
+  <table>
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>誕生日</th>
+        <th>詳細</th>
+        <th>編集</th>
+      </tr>
+    </thead >
+    <tbody>
+      <% @authors.each do |author| %>
+        <tr>
+          <td><%= author.name %></td>
+          <td><%= author.birthday %></td>
+          <td><%= link_to '詳細', author_path(author) %></td>
+          <td><%= link_to '編集', edit_author_path(author) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "新規登録", new_author_path %>
