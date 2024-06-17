@@ -1,0 +1,20 @@
+<% if @author.errors.present? %>
+  <div>
+    <ul>
+      <% @author.errors.each do |error| %>
+        <li>
+          <%= error.full_message %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<h1>新規登録画面</h1>
+<%= form_with model: @author, url: authors_path do |form| %>
+  <%= render 'form', form: form  %>
+
+  <div>
+    <%= form.submit "登録" %>
+  </div>
+<% end %>
+<%= link_to "戻る", authors_path %>
