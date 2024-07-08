@@ -1,0 +1,34 @@
+<h1>新規登録</h1>
+
+<%= form_with model: @comic do |f| %>
+  <ul>
+    <li>
+      <%= f.label :name, "漫画タイトル" %>
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      <%= f.label :published_on, "出版日" %>
+      <%= f.date_field :published_on %>
+    </li>
+    <li>
+      <%= f.label :price, "値段" %>
+      <%= f.number_field :price %>
+    </li>
+    <li>
+      <%= f.label :publisher_id, "出版社" %>
+      <%= f.collection_select :publisher_id, @publishers, :id, :name %>
+    </li>
+  </ul>
+  <ul>
+    <%= f.fields_for :authors do |ff| %>
+      <li>
+        <%= ff.label :author_ids, "著者" %>
+        <% @authors.each do |author| %>
+          <%= ff.check_box :author_ids, { multiple: true }, author.id, nil %>
+          <%= author.name %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <%= f.submit "登録" %>
+<% end %>

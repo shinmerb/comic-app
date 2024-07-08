@@ -1,0 +1,9 @@
+<% @comics.each do |comic| %>
+  <div>
+    <%= comic.name %>
+    <%= comic.published_on %>
+    <%= comic.price %>
+  </div>
+<% end %>
+
+<%= link_to "新規登録", new_comic_path%>
