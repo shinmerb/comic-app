@@ -20,13 +20,10 @@
     </li>
   </ul>
   <ul>
-    <%= f.fields_for :authors do |ff| %>
+    <%= f.fields_for :comic_authors do |ff| %>
       <li>
-        <%= ff.label :author_ids, "著者" %>
-        <% @authors.each do |author| %>
-          <%= ff.check_box :author_ids, { multiple: true }, author.id, nil %>
-          <%= author.name %>
-        <% end %>
+        <%= ff.label :author_id, ff.object.author.name %>
+        <%= ff.check_box :author_id, { checked: false },  ff.object.author_id, nil  %>
       </li>
     <% end %>
   </ul>

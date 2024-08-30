@@ -8,18 +8,12 @@ class ComicsController < ApplicationController
     @authors = Author.all
     @publishers = Publisher.all
 
-    # comic_authorをbuildする
-    @comic.comic_authors.build
+    @authors.each do |author|
+      @comic.comic_authors.build(author: author)
+    end
   end
 
   def create
-    # @comic = Comic.new(comic_params.except(:comic_authors_attributes))
-
-    # author_ids = comic_params[:comic_authors_attributes]['0'][:author_id]
-    # author_ids.each do |id|
-    #   @comic.comic_authors.build(author_id: id)
-    # end
-
     @comic = Comic.new(comic_params)
 
     if @comic.save
@@ -32,6 +26,6 @@ class ComicsController < ApplicationController
   private
 
   def comic_params
-    params.require(:comic).permit(:name, :published_on, :price, :publisher_id, comic_authors_attributes: [author_ids: []])
+    params.require(:comic).permit(:name, :published_on, :price, :publisher_id, comic_authors_attributes: [:author_id])
   end
 end
