@@ -1,6 +1,6 @@
 class ComicsController < ApplicationController
   def index
-    @comics = Comic.all
+    @comics = Comic.includes(:publisher, :authors)
   end
 
   def new
