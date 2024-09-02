@@ -9,7 +9,7 @@ class ComicsController < ApplicationController
     @publishers = Publisher.all
 
     @authors.each do |author|
-      @comic.comic_authors.build(author: author)
+      @comic.comic_authors.build(author:)
     end
   end
 
@@ -26,6 +26,6 @@ class ComicsController < ApplicationController
   private
 
   def comic_params
-    params.require(:comic).permit(:name, :published_on, :price, :publisher_id, comic_authors_attributes: [:author_id])
+    params.require(:comic).permit(:name, :published_on, :price, :publisher_id, comic_authors_attributes: :author_id)
   end
 end
