@@ -1,10 +1,26 @@
 <h1>詳細画面</h1>
 
-<ul>
-  <li><%= @author.name %></li>
-  <li><%= @author.birthday %></li>
-</ul>
+<table border="1">
+  <thead>
+    <tr>
+      <td>名前</td>
+      <td>生年月日</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= @author.name %>
+      </td>
+      <td>
+        <%= @author.birthday %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<%= link_to "編集", edit_author_path(@author) %>
-<%= link_to "削除", author_path(@author), data: { turbo_method: :delete } %>
-<%= link_to "戻る", authors_path %>
+<div class="inline-kinks">
+  <%= link_to "編集", edit_author_path(@author), class: "button" %>
+  <%= link_to "削除", author_path(@author), data: { turbo_method: :delete }, class: "button_other" %>
+  <%= link_to "戻る", authors_path, class: "button_other" %>
+</div>

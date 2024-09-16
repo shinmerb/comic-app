@@ -1,15 +1,111 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
+@import url(https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic);
+
+/**
+ * Base Elements
  */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+span,
+a,
+button {
+  font-family: 'Lato', 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 3px 5px 5px 3px
+}
+
+.button {
+  margin: 10px;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: #fff;
+  background: #016aba;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  opacity: 0.9;
+  display: inline-block;
+}
+
+.button_other {
+  margin: 10px;
+  padding: 5px 15px;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 5px;
+  border: solid 1px;
+  font-weight: bold;
+  opacity: 0.9;
+  display: inline-block;
+
+}
+
+table {
+  margin: 10px;
+  border-collapse: collapse;
+  border: solid 1px;
+}
+table th, table td {
+  padding: 5px 10px;
+  border: dashed 1px;
+}
+
+table label {
+  text-align: center;
+}
+
+ul label {
+    width: 104px;
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 8px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+  width: 100;
+  margin: .5em;
+  padding: .5em;
+  border: solid 1px #aaa;
+  border-radius: 4px;
+  outline-color: #9dbbff;
+  vertical-align: middle;
+}
+
+input[type="submit"] {
+  margin: 10px;
+  background-color: #5bb4ff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  width: 160px;
+  height: 40px;
+  border: solid 1px #4397de;
+  border-radius: 4px;
+}
+
+.inline-links a {
+  display: inline-block;
+  margin-right: 10px;
+}

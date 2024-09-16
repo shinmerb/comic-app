@@ -6,5 +6,8 @@
     <%= form.submit "更新" %>
   </div>
 <% end %>
-<%= link_to "戻る", publisher_path(@publisher) %>
-<%= link_to "一覧", publishers_path %>
+
+<div class="inline-links">
+  <%= link_to "戻る", publisher_path(@publisher), class: "button_other" %>
+  <%= link_to "一覧", publishers_path, class: "button_other" %>
+</div>
