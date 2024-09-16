@@ -1,3 +1,4 @@
+
 # FactoryBotとかFaker使いたいけど、とりあえず。
 
 ComicAuthor.delete_all

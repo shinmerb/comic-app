@@ -8,6 +8,7 @@ class ComicsController < ApplicationController
     @authors = Author.all
     @publishers = Publisher.all
 
+    # comic_authorをbuildする
     @authors.each do |author|
       @comic.comic_authors.build(author:)
     end
@@ -15,7 +16,7 @@ class ComicsController < ApplicationController
 
   def create
     @comic = Comic.new(comic_params)
-
+  
     if @comic.save
       redirect_to comics_url
     else
