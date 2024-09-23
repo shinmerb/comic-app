@@ -1,11 +1,15 @@
 class ComicsController < ApplicationController
+  before_action :set_params, only: %i[new edit]
   def index
     @comics = Comic.all
   end
 
   def new
     @comic = Comic.new
-    set_params
+  end
+
+  def show
+    @comic = Comic.find(params[:id])
   end
 
   def create
@@ -21,25 +25,27 @@ class ComicsController < ApplicationController
 
   def edit
     @comic = Comic.find(params[:id])
-    set_params
   end
 
   def update
-    Comic.create(comic_params)
+    @comic = Comic.find(params[:id])
+
+    if @comic.update(comic_params)
+      redirect_to comics_url, notice: '漫画を更新しました'
+    else
+      set_params
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
 
   def comic_params
-    params.require(:comic).permit(:name, :published_on, :price, :publisher_id, comic_authors_attributes: :author_id)
+    params.require(:comic).permit(:name, :published_on, :price, :publisher_id, author_ids: [])
   end
 
   def set_params
     @authors = Author.all
     @publishers = Publisher.all
-
-    @authors.each do |author|
-      @comic.comic_authors.build(author: )
-    end
   end
 end

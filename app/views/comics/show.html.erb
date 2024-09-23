@@ -1,0 +1,37 @@
+<h1>詳細画面</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <td>タイトル</td>
+      <td>出版日</td>
+      <td>値段</td>
+      <td>出版社</td>
+      <td>著者</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+       <%= @comic.name %>
+      </td>
+      <td>
+        <%= @comic.published_on %>
+      </td>
+      <td>
+        <%= @comic.price %>
+      </td>
+      <td>
+        <%= @comic.publisher.name %>
+      </td>
+      <td>
+       <%= @comic.authors.pluck(:name).join(',') %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="inline-kinks">
+  <%= link_to "編集", edit_comic_path(@comic), class: "button" %>
+  <%= link_to "戻る", comics_path, class: "button_other" %>
+</div>

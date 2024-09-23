@@ -6,7 +6,8 @@
       <th>出版日</th>
       <th>値段</th>
       <th>著者</th>
-      <th>処理</th>
+      <th>詳細</th>
+      <th>編集</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
       <td><%= comic.published_on %></td>
       <td><%= number_to_currency(comic.price) %></td>
       <td><%= comic.authors.pluck("name").join(", ") %></td>
+      <td><%= link_to '詳細', comic_path(comic) %></td>
       <td><%= link_to '編集', edit_comic_path(comic) %></td>
     </tr>
     <% end %>

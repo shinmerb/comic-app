@@ -37,13 +37,13 @@
       </tr>
     </thead>
     <tbody>
-      <%= f.fields_for :comic_authors do |ff| %>
+      <%= f.collection_check_boxes :author_ids, @authors, :id, :name, checked: @comic.author_ids do |ff| %>
         <tr>
           <td>
-            <%= ff.label :author_id, ff.object.author.name %>
+            <%= ff.text %>
           </td>
           <td>
-            <%= ff.check_box :author_id, { checked: false },  ff.object.author_id, nil  %>
+            <%= ff.check_box %>
           </td>
         </tr>
       <% end %>
