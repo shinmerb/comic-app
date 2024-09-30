@@ -1,0 +1,48 @@
+ <% if @comic.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @comic.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <ul>
+    <li>
+      <%= form.label :name, "漫画タイトル" %>
+      <%= form.text_field :name %>
+    </li>
+    <li>
+      <%= form.label :published_on, "出版日" %>
+      <%= form.date_field :published_on %>
+    </li>
+    <li>
+      <%= form.label :price, "値段" %>
+      <%= form.number_field :price %>
+    </li>
+    <li>
+      <%= form.label :publisher_id, "出版社" %>
+      <%= form.collection_select :publisher_id, @publishers, :id, :name %>
+    </li>
+  </ul>
+  <table border='1'>
+    <thead>
+      <tr>
+        <th>著者</th>
+        <th>選択</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= form.collection_check_boxes :author_ids, @authors, :id, :name do |ff| %>
+        <tr>
+          <td>
+            <%= ff.text %>
+          </td>
+          <td>
+            <%= ff.check_box %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

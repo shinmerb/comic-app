@@ -38,6 +38,13 @@ class ComicsController < ApplicationController
     end
   end
 
+  def destroy
+    @comic = Comic.find(params[:id])
+    @comic.destroy!
+
+    redirect_to comics_path, notice: '漫画を削除しました'
+  end
+
   private
 
   def comic_params

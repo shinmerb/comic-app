@@ -33,5 +33,6 @@
 
 <div class="inline-kinks">
   <%= link_to "編集", edit_comic_path(@comic), class: "button" %>
+  <%= link_to '削除', comic_path(@comic), data: { turbo_method: :delete }, class: "button_other" %>
   <%= link_to "戻る", comics_path, class: "button_other" %>
 </div>

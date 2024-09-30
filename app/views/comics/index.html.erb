@@ -8,6 +8,7 @@
       <th>著者</th>
       <th>詳細</th>
       <th>編集</th>
+      <th>削除</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
       <td><%= comic.authors.pluck("name").join(", ") %></td>
       <td><%= link_to '詳細', comic_path(comic) %></td>
       <td><%= link_to '編集', edit_comic_path(comic) %></td>
+      <td><%= link_to '削除', comic_path(comic), data: { turbo_method: :delete } %></td>
     </tr>
     <% end %>
   </tbody>

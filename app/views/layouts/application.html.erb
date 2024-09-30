@@ -12,6 +12,11 @@
 
   <body>
     <div class="container">
+      <ul>
+        <li><%= link_to '出版社', publishers_path %></li>
+        <li><%= link_to '著者', authors_path %></li>
+        <li><%= link_to '漫画', comics_path %></li>
+      </ul>
       <% if flash.notice %>
         <%= flash.notice %>
       <% end %>

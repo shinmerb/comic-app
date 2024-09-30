@@ -1,53 +1,6 @@
 <h1>新規登録</h1>
 
-<%= form_with model: @comic do |f| %>
-  <% if @comic.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% @comic.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <ul>
-    <li>
-      <%= f.label :name, "漫画タイトル" %>
-      <%= f.text_field :name %>
-    </li>
-    <li>
-      <%= f.label :published_on, "出版日" %>
-      <%= f.date_field :published_on %>
-    </li>
-    <li>
-      <%= f.label :price, "値段" %>
-      <%= f.number_field :price %>
-    </li>
-    <li>
-      <%= f.label :publisher_id, "出版社" %>
-      <%= f.collection_select :publisher_id, @publishers, :id, :name %>
-    </li>
-  </ul>
-  <table border='1'>
-    <thead>
-      <tr>
-        <th>著者</th>
-        <th>選択</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= f.collection_check_boxes :author_ids, @authors, :id, :name, checked: false do |ff| %>
-        <tr>
-          <td>
-            <%= ff.text %>
-          </td>
-          <td>
-            <%= ff.check_box %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= f.submit "登録" %>
+<%= form_with model: @comic do |form| %>
+  <%= render 'form', form: form  %>
+  <%= form.submit "登録" %>
 <% end %>
