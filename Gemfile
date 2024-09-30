@@ -9,7 +9,7 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sprockets-rails"
 gem 'importmap-rails', '~> 2.0', '>= 2.0.1'
 gem 'turbo-rails', '~> 2.0', '>= 2.0.5'
-
+gem 'i18n'
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 

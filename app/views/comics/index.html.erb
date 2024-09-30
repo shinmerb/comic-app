@@ -1,0 +1,29 @@
+<h1>コミック一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>出版日</th>
+      <th>値段</th>
+      <th>著者</th>
+      <th>詳細</th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comics.each do |comic| %>
+    <tr>
+      <td><%= comic.name %></td>
+      <td><%= comic.published_on %></td>
+      <td><%= number_to_currency(comic.price) %></td>
+      <td><%= comic.authors.pluck("name").join(", ") %></td>
+      <td><%= link_to '詳細', comic_path(comic) %></td>
+      <td><%= link_to '編集', edit_comic_path(comic) %></td>
+      <td><%= link_to '削除', comic_path(comic), data: { turbo_method: :delete } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "新規登録", new_comic_path, class: "button" %>

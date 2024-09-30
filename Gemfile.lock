@@ -218,6 +218,7 @@ PLATFORMS
 
 DEPENDENCIES
   debug
+  i18n
   importmap-rails (~> 2.0, >= 2.0.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)
